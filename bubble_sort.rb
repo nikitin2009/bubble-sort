@@ -22,5 +22,3 @@ end
 test_array = [5,1,3,6,7,8,9,5]
 
 sorted_array = bubble_sort(test_array)
-
-puts sorted_array
