@@ -1,15 +1,16 @@
 def bubble_sort(a)
   i = 0
-  j = 0
-  while i < a.length do
-    while j < (a.length - i -1) do
+  while i < (a.length - 1) do
+    j = 0
+    switch = false
+    while j < (a.length - (1+i)) do
         if a[j] > a[j+1]
-          temp = a[j+1]
-          a[j+1] = a[j]
-          a[j] = temp
+          a[j], a[j+1] = a[j+1], a[j]
+          switch = true
         end
         j +=1
     end
+    break if switch == false
     i += 1
   end
 return a
