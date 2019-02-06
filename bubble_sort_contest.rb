@@ -19,19 +19,20 @@ return a
 end
 
 def bubble_sort_Alex(a)
-  n = a.length
-  loop do
-    newn = 0
-    for i in (1...n)
+  last_swapped = a.length
+  while last_swapped > 1
+    new_last_swapped = 0
+    i = 1
+    while i < last_swapped
       if a[i-1] > a[i]
         a[i-1], a[i] = a[i], a[i-1]
-        newn = i
+        new_last_swapped = i
       end
+      i += 1
     end
-    n = newn
-    break if n <= 1
+    last_swapped = new_last_swapped
   end
-  a
+  return a
 end
 
 
