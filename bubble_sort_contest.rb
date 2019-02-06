@@ -11,39 +11,42 @@ def bubble_sort_Cheda(a)
           switch = true
         end
         j +=1
-    end
-    break if switch == false
+      end
+      break if switch == false
     i += 1
   end
 return a
 end
 
 def bubble_sort_Alex(a)
-  n = a.length
-  loop do
-    newn = 0
-    for i in (1...n)
+  last_swapped = a.length
+  while last_swapped > 1
+    new_last_swapped = 0
+    i = 1
+    while i < last_swapped
       if a[i-1] > a[i]
         a[i-1], a[i] = a[i], a[i-1]
-        newn = i
+        new_last_swapped = i
       end
+      i += 1
     end
-    n = newn
-    break if n <= 1
+    last_swapped = new_last_swapped
   end
-  a
+  return a
 end
 
-
 # arr = Array.new(100, 0)+ [1] + Array.new(1000, 2)
-arr = (1..1000).to_a.shuffle
+arr = [5,1,3,6,7,8,9,5]
+
+# bubble_sort_Cheda(arr)
+# bubble_sort_Alex(arr)
 
 bubble_sort_Cheda_time = Benchmark.realtime do
-  10_000.times { bubble_sort_Cheda(arr) }
+  100000.times { bubble_sort_Cheda(arr) }
 end
 
 bubble_sort_Alex_time = Benchmark.realtime do
-  10_000.times { bubble_sort_Alex(arr) }
+  100000.times { bubble_sort_Alex(arr) }
 end
 
 puts "bubble_sort_Cheda_time: #{bubble_sort_Cheda_time}"
